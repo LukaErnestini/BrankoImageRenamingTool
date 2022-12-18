@@ -4,6 +4,15 @@ import imghdr
 import tkinter as tk
 import tkinter.filedialog as filedialog
 
+def show_name_and_author():
+    print("=" * 80)
+    print("Branko Image Renaming Tool".center(80))
+    print("by Luka Ernestini".center(80))
+    print("=" * 80)
+
+# Call the show_name_and_author function at the beginning of the script
+show_name_and_author()
+
 # Open a dialog to select a folder with the pictures
 root = tk.Tk()
 root.withdraw()
@@ -15,15 +24,6 @@ for file in os.listdir(folder_path):
     # Check if the file is an image
     if imghdr.what(os.path.join(folder_path, file)):
         image_paths.append(os.path.join(folder_path, file))
-
-def show_name_and_author():
-    print("=" * 80)
-    print("Branko Image Renaming Tool".center(80))
-    print("by Luka Ernestini".center(80))
-    print("=" * 80)
-
-# Call the show_name_and_author function at the beginning of the script
-show_name_and_author()
 
 # Open a separate window to display the images
 plt.ion()
