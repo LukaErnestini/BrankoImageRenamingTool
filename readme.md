@@ -10,6 +10,14 @@ A script to rename images in a folder by prompting the user for a new name.
 
 ## Usage
 
+Using the executable:
+
+1. Download the zipped bundle: [release.zip](https://github.com/LukaErnestini/BrankoImageRenamingTool/raw/master/release.zip)
+2. Run the executable `script.exe`
+3. Follow steps 5-9
+
+Manually:
+
 1. Clone or download the repository.
 2. Open a terminal and navigate to the repository folder.
 3. Install the required libraries: `pip install -r requirements.txt`
