@@ -28,6 +28,8 @@ for file in os.listdir(folder_path):
 # Open a separate window to display the images
 plt.ion()
 
+# Counter for showing progress
+count = 1
 # Iterate through the list of file paths
 for image_path in image_paths:
     # Open the image and display it in the separate window
@@ -35,8 +37,27 @@ for image_path in image_paths:
     plt.imshow(image)
     plt.show(block=False)
 
-    # Prompt the user for a name for the file
-    file_name = input("Enter a name for the file (and hit enter): ")
+    # Get current file name without extension
+    current_file_name = image_path.split('\\')
+    current_file_name = current_file_name[len(current_file_name)-1]
+    current_file_name = current_file_name.split('.', 1)[0]
+    # Print position in folder and file name
+    print(f'[{count}/{len(image_paths)}]: {current_file_name}')
+    count += 1
+    # Loop until unique name
+    while True:
+        # Prompt the user for a name for the file
+        file_name = input("Enter a name for the file: ")
+                
+        unique = True
+        # Get a list of all the file paths for the images in the current directory
+        for file in os.listdir(folder_path):
+            # Check whether file with the same name already exists
+            if file_name == file.split('.')[0]:
+                unique = False
+        if unique:
+            break
+        print('!!! The file name was not unique, choose another one')
 
     # Clear the image from the window
     plt.clf()
